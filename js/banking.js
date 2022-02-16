@@ -32,8 +32,9 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     const withdrawNowAmount = parseFloat(withdrawNow.innerText);
     const withdrawNowMainAmount = withdrawNowAmount - withdrawAmount;
     withdrawNow.innerText = withdrawNowMainAmount;
-    if (withdrawNow.innerText == 0) {
-        withdrawInput.innerText ='No more money';
+
+    if (withdrawNow.innerText == -1) {
+        withdrawNow.innerText = 0;
     }
     withdrawInput.value = "";
 })
