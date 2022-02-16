@@ -1,9 +1,27 @@
-document.getElementById('deposit-button').addEventListener('click', function () {
+/* function doubleIt(num){
+    const result = num * 2;
+    return result;
+}
+ */
+
+function getInputValue() {
     const depositInput = document.getElementById('deposit-input');
     const depositAmount = parseFloat(depositInput.value);
+    depositInput.value = "";
+    return depositAmount;
+    
+}
+
+
+document.getElementById('deposit-button').addEventListener('click', function () {
+    /*    const depositInput = document.getElementById('deposit-input');
+       const depositAmount = parseFloat(depositInput.value); */
     // depositAmount total
+    const depositAmount = getInputValue();
+
     const depositTotal = document.getElementById('deposit-total');
     const currentAmount = parseFloat(depositTotal.innerText);
+
     const depositMainAmount = currentAmount + depositAmount;
     depositTotal.innerText = depositMainAmount;
 
@@ -16,8 +34,8 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     // blanca.innerText = blancaTotal;
     const updateBlance = blancaTotal + depositAmount;
     blanca.innerText = updateBlance;
-    depositInput.value = "";
-})
+    
+});
 
 document.getElementById('withdraw-button').addEventListener('click', function () {
     const withdrawInput = document.getElementById('withdraw-input');
@@ -25,11 +43,13 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     // depositAmount total
     const withdrawTotal = document.getElementById('withdraw-total');
     const currentWithdrawAmount = parseFloat(withdrawTotal.innerText);
+
     const withdrawMainAmount = currentWithdrawAmount + withdrawAmount;
     withdrawTotal.innerText = withdrawMainAmount;
 
     const withdrawNow = document.getElementById('balance-total');
     const withdrawNowAmount = parseFloat(withdrawNow.innerText);
+
     const withdrawNowMainAmount = withdrawNowAmount - withdrawAmount;
     withdrawNow.innerText = withdrawNowMainAmount;
 
@@ -37,6 +57,6 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
         withdrawNow.innerText = 0;
     }
     withdrawInput.value = "";
-})
+});
 
 // blanca filed 
